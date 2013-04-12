@@ -1,5 +1,6 @@
 This is a simple formatter, which currently only supports Java.
-The parser is based on the <a href="http://www.cs.umb.edu/j--/">`j--`</a>'s parser, which was developed by UMass Boston.
+
+The parser is derived from the <a href="http://www.cs.umb.edu/j--/">`j--`</a>'s parser developed at UMass Boston.
 
 Usage
 =======
