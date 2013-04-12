@@ -1,4 +1,4 @@
-This is a simple formatter, which currently only supports Java.
+This is a simple java application that allows you to format your source file, and which currently only supports Java.
 
 The parser is derived from the <a href="http://www.cs.umb.edu/j--/">`j--`</a>'s parser developed at UMass Boston.
 
