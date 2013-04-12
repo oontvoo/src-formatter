@@ -6,7 +6,7 @@ Usage
 
 0) To format your source file:
 
-`java -jar src-formater.jar <input-file> > <output-file>`
+`java -jar src-formater.jar <input-file> > [<output-file> [<ALLMAN> | <K&R>]]`
 
  
 
