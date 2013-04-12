@@ -51,8 +51,6 @@ public class JavaSourceFile implements SourceFile
     public String toString()
     {
         StringBuilder bd = new StringBuilder();
-//        bd.append("PATH = " ).append(path).append('\n');
-//        bd.append("SOURCE starts here: \n--------------\n");
         for (List<SourceToken> line : srcFile)
         {
             for (SourceToken tk : line)
