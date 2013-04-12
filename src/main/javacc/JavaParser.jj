@@ -1,33 +1,11 @@
-/**
- * Copyright (C) 2013 Vy Thao Nguyen
- *
- * This program allows you to format your java source file.
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * any later version.
- *
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- */
-
 
 /**
  * Define a simple grammar for scanning Java source files
- * (Derived from the J--'s parser)
+ * (Derived from the J--'s parser See http://www.cs.umb.edu/j--/)
  *
  * This will scan, and record the tokens to build a <code>SourceFile</code>
  * object.
  *
- * Note: As of this release (post-1.0), the class does NOT perform grammar checking.
- * The compilability of the source file will be checked by delegating to the
- * `javac`
  *
  * @author Vy Thao Nguyen
  */
