@@ -18,29 +18,50 @@
  */
 package edu.umb.cs;
 
+import edu.umb.cs.parser.BracingStyle;
 import edu.umb.cs.parser.ParseException;
-import edu.umb.cs.source.Language;
+import edu.umb.cs.parser.Language;
 import edu.umb.cs.source.SourceFile;
-import edu.umb.cs.source.SourceFiles;
+import edu.umb.cs.source.Formatter;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.PrintStream;
 
 /**
  * @author Vy Thao Nguyen
  */
 public class Main
 {
-    private static final String USAGE = "Usage: java -jar src-main <path to file>";
+    private static final String USAGE
+        = "Usage: java -jar src-formatter.jar <path to file> [<output file> [<ALLMAN> | <K&R>]]";
+
     public static void main(String[] args) throws FileNotFoundException, ParseException
     {
-        if (args == null || args.length != 1)
+        if (args == null || args.length != 1 && args.length != 2 && args.length != 3)
             System.out.println(USAGE);
-        
         else
         {
-            SourceFile src = SourceFiles.getSourceFile(new File(args[0]),
-                                                       Language.JAVA);
+            BracingStyle style = BracingStyle.ALLMAN;
+            PrintStream stdout = System.out;
+
+            switch(args.length)
+            {
+                case 3:
+                    style = args[2].equalsIgnoreCase("allman")
+                                ? BracingStyle.ALLMAN
+                                : BracingStyle.K_AND_R;
+                    // fall through
+                case 2:
+                    System.setOut(new PrintStream(args[1]));
+                    break;
+            }
+
+            SourceFile src = Formatter.parseFile(new File(args[0]),
+                                                 Language.JAVA,
+                                                 style);
             System.out.println(src.toString());
+            // reset to standard output
+            System.setOut(stdout);
         }
     }
 }

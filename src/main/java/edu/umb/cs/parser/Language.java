@@ -16,33 +16,13 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-
-package edu.umb.cs.source;
-
-import edu.umb.cs.parser.InternalException;
-import edu.umb.cs.parser.JavaParser;
-import edu.umb.cs.parser.ParseException;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+package edu.umb.cs.parser;
 
 /**
- *
+ * supported langauges
  * @author Vy Thao Nguyen
  */
-public class SourceFiles 
+public enum Language 
 {
-    public static SourceFile getSourceFile(File file,
-                                           Language languageType)
-                             throws FileNotFoundException, ParseException
-    {
-        switch(languageType)
-        {
-            case JAVA:
-                JavaParser parser = new JavaParser(new FileInputStream(file));
-                return parser.parseJava();
-            default:
-                throw new InternalException("Unsupported Language: " + languageType);
-        }
-    }
+    JAVA
 }

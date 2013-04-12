@@ -19,6 +19,7 @@
 
 package edu.umb.cs.source.std;
 
+import edu.umb.cs.parser.BracingStyle;
 import edu.umb.cs.parser.JavaParser;
 import edu.umb.cs.parser.ParseException;
 import edu.umb.cs.source.SourceFile;
@@ -26,8 +27,6 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /**
  *
@@ -40,17 +39,36 @@ public class JavaCCParserTest extends SourceTestBase
     @Override
     void doTest(File expted, File in) throws FileNotFoundException, IOException
     {
-        FileInputStream fin = new FileInputStream(in);
-        
-        JavaParser parser = new JavaParser(fin);
+        FileInputStream fin1 = null;
+        FileInputStream fin2 = null;
+        JavaParser parser;
         try
         {
-            SourceFile inParsed = parser.parseJava();
-            System.out.println(inParsed);   
+            // K%R style
+            fin1 = new FileInputStream(in);
+            parser = new JavaParser(fin1);
+            System.out.println("K&R style:");
+            SourceFile kAndR = parser.parseJava(BracingStyle.K_AND_R);
+            System.out.println(kAndR);   
+            
+            // Allman style
+            fin2 = new FileInputStream(in);
+            System.out.println("\n-----------\nAllman style:");
+            parser.ReInit(fin2);
+            SourceFile allman = parser.parseJava(BracingStyle.ALLMAN);
+            System.out.println(allman);   
+            
         }
         catch (ParseException ex)
         {
             throw new RuntimeException(ex);
+        }
+        finally
+        {
+            if (fin1 != null)
+                fin1.close();
+            if (fin2 != null)
+                fin2.close();
         }
     }
 

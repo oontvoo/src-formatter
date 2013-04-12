@@ -18,6 +18,7 @@
  */
 package edu.umb.cs.source;
 
+import edu.umb.cs.parser.BracingStyle;
 import java.util.List;
 import java.util.Map;
 
@@ -28,8 +29,8 @@ import java.util.Map;
  */
 public interface SourceFile
 {
-    String getLine(int line);
-
+    BracingStyle getStyle();
+    
     List<SourceToken> getTokens(int line);
     
     /**

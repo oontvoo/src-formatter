@@ -16,13 +16,23 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
-package edu.umb.cs.source;
+
+package edu.umb.cs.parser;
 
 /**
- * supported langauges
  * @author Vy Thao Nguyen
  */
-public enum Language 
+public enum BracingStyle
 {
-    JAVA
+    /**
+     * In Allman style, all curly brackets go in a separate line
+     */
+    ALLMAN,
+    
+    /**
+     * In Kernighan and Ritchie style, open curly brackets stay in the same
+     * line with the subject.
+     */
+    K_AND_R
+    
 }
