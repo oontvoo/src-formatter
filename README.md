@@ -1,6 +1,7 @@
-This is a simple java application that allows you to format your source file, and which currently only supports Java.
+Similar to the Unix's famous tool `cat`, this `src-cat` allows you display the content of a source file in the terminal, but you can also specify the format for it (ie., Allman or K&R)
 
-The parser is derived from the <a href="http://www.cs.umb.edu/j--/">`j--`</a>'s parser developed at UMass Boston.
+The parser is developed based on the grammar defined in the <a href="http://www.cs.umb.edu/j--/">`j--`</a>'s compiler, which was developed at UMass Boston.
+(Many thanks to professor Bill Campbell and Swami Iyer for allowing me to use it)
 
 Usage
 =======
